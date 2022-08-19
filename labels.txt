@@ -1,0 +1,2 @@
+0 covid
+1 no_covid
