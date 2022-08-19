@@ -19,9 +19,11 @@ def image_processing(path):
     data[0] = normalized_image_array
     prediction = model.predict(data)
     if prediction[0][0] > prediction[0][1]:
-        return f' Пневмания с вероятностью  {prediction[0][0] * 100}%'
+        result = round(prediction[0][0] * 100, 2)
+        return f'  Пневмания с вероятностью  {result}%'
     else:
-        return f' Лёгкие чистые с вероятностью  {prediction[0][1] * 100}%'
+        result = round(prediction[0][1] * 100, 2)
+        return f' Пневмании нет с вероятностью  {prediction[0][1] * 100}%'
 
 
 class MainWindow(QDialog):
@@ -32,6 +34,7 @@ class MainWindow(QDialog):
         self.browse.clicked.connect(self.browsefiles)
         self.btn_go.clicked.connect(self.btn_clicker)
         self.btn_go.setEnabled(False)
+        self.btn_go.setStyleSheet('QPushButton {border-color : rgb(255, 255, 255);}')
 
     def browsefiles(self):
         fname=QFileDialog.getOpenFileName(self, 'Open file', 'D:\codefirst.io\PyQt5 tutorials\Browse Files', 'Images (*.png, *.xmp *.jpg *.jpeg)')
@@ -39,8 +42,11 @@ class MainWindow(QDialog):
         self.total.setText('')
         if self.filename.text() != '':
             self.btn_go.setEnabled(True)
+            self.btn_go.setStyleSheet('QPushButton {border-color : rgb(255, 255, 255); background: #CB4646; color : rgb(0, 0, 0);}')
         else:
             self.btn_go.setEnabled(False)
+            self.btn_go.setStyleSheet('QPushButton {border-color : rgb(255, 255, 255);}')
+
     
     def btn_clicker(self):
         self.path = self.filename.text()
