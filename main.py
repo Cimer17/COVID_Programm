@@ -8,7 +8,6 @@ from PyQt5.uic import loadUi
 from PyQt5 import QtGui
 
 
-
 def image_processing(path):
     model = load_model('keras_model.h5')
     data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
@@ -53,6 +52,7 @@ class MainWindow(QDialog):
 
 
 app=QApplication(sys.argv)
+app.setStyle('QtCurve')
 mainwindow=MainWindow()
 mainwindow.setWindowTitle('ПневмоТестер')
 mainwindow.setWindowIcon(QtGui.QIcon('ico.png'))
