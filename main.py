@@ -19,11 +19,11 @@ def image_processing(path):
     data[0] = normalized_image_array
     prediction = model.predict(data)
     if prediction[0][0] > prediction[0][1]:
-        result = round(prediction[0][0] * 100, 2)
-        return f'  Пневмания с вероятностью  {result}%'
+        result = round(prediction[0][0] * 100, 2) 
+        return f'  Пневмания с вероятностью  {result} %'
     else:
         result = round(prediction[0][1] * 100, 2)
-        return f' Пневмании нет с вероятностью  {prediction[0][1] * 100}%'
+        return f'Пневмании нет с вероятностью  {result} %'
 
 
 class MainWindow(QDialog):
@@ -47,11 +47,10 @@ class MainWindow(QDialog):
             self.btn_go.setEnabled(False)
             self.btn_go.setStyleSheet('QPushButton {border-color : rgb(255, 255, 255);}')
 
-    
     def btn_clicker(self):
         self.path = self.filename.text()
         if self.path == '':
-            self.total.setText('Ошибка : Вы не загрузили фотографию')
+            self.total.setText('Ошибка : Вы не з агрузили фотографию')
         else:
             self.result = image_processing(self.path)
             self.total.setText(self.result)
