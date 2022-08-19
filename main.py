@@ -30,7 +30,7 @@ class MainWindow(QDialog):
     
     def __init__(self):
         super(MainWindow,self).__init__()
-        loadUi(r'C:\Users\ivank\Desktop\COVID_Programm\gui.ui',self)
+        loadUi('gui.ui',self)
         self.browse.clicked.connect(self.browsefiles)
         self.btn_go.clicked.connect(self.btn_clicker)
         self.btn_go.setEnabled(False)
