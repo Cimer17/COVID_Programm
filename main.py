@@ -30,7 +30,7 @@ class MainWindow(QDialog):
     
     def __init__(self):
         super(MainWindow,self).__init__()
-        loadUi("gui.ui",self)
+        loadUi(r'C:\Users\ivank\Desktop\COVID_Programm\gui.ui',self)
         self.browse.clicked.connect(self.browsefiles)
         self.btn_go.clicked.connect(self.btn_clicker)
         self.btn_go.setEnabled(False)
@@ -56,16 +56,16 @@ class MainWindow(QDialog):
             self.total.setText(self.result)
 
 
-app=QApplication(sys.argv)
-app.setStyle('QtCurve')
-mainwindow=MainWindow()
-mainwindow.setWindowTitle('ПневмоТестер')
-mainwindow.setWindowIcon(QtGui.QIcon('ico.png'))
-app.setWindowIcon(QtGui.QIcon('ico.png'))
-widget=QtWidgets.QStackedWidget()
-widget.setWindowIcon(QtGui.QIcon('ico.png'))
-widget.addWidget(mainwindow)
-widget.setFixedWidth(400)
-widget.setFixedHeight(300)
-widget.show()
-sys.exit(app.exec_())
+if __name__ == '__main__':
+    app=QApplication(sys.argv)
+    app.setStyle('QtCurve')
+    mainwindow=MainWindow()
+    app.setWindowIcon(QtGui.QIcon('design.ico'))
+    mainwindow.setWindowTitle('ПневмоТестер')
+    widget=QtWidgets.QStackedWidget()
+    widget.setWindowIcon(QtGui.QIcon('design.ico'))
+    widget.addWidget(mainwindow)
+    widget.setFixedWidth(400)
+    widget.setFixedHeight(300)
+    widget.show()
+    sys.exit(app.exec_())

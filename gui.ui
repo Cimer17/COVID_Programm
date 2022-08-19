@@ -61,8 +61,7 @@ border-color: rgb(255, 0, 0);</string>
 width: 189px;
 height: 64px;
 border-color: rgb(255, 255, 255);
-background: #CB4646;
-radius: 39px;</string>
+background: #CB4646;</string>
    </property>
    <property name="text">
     <string>Открыть</string>
@@ -119,7 +118,6 @@ color: rgb(255, 255, 255);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">border-color: rgb(255, 255, 255);
-radius: 39px;
 </string>
    </property>
    <property name="text">
